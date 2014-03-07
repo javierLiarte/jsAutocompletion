@@ -1,1 +1,25 @@
-var tags = new Array('javascript', 'dev', 'development' 'array', 'example', 'hackaton');
+$(document).ready(function () {
+	var tags = ['javascript', 'dev', 'development', 'array', 'example', 'hackaton'];
+
+	$("#tag-list").keyup(function () {
+		var textInput = $(this).val();
+
+		$("#user-input").text(textInput);
+
+		var detectedTags = new Array();
+		if (textInput != "") {
+			detectedTags = tags.filter(function(currentTag, index, array) {
+				if (currentTag.indexOf(textInput) == 0) {
+					return currentTag;
+				}
+			});
+		}
+
+		$("#detected-tags").html("");
+		detectedTags.forEach(function(tag, index, array) {
+			$("#detected-tags").append(tag+" <a href=\"?delete="+tag+"\">x</a> ");
+		});
+
+		
+	});
+});
