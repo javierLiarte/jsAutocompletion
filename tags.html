@@ -2,7 +2,19 @@
 <head>
 	<title>Redradix hackaton</title>
 	<script src="js/jquery-1.11.0.js"></script>
-	<script src="js/tags.js"></script>
+    <script src="js/tags.js"></script>
+
+	
+	<style>
+		#auto-completion-list {
+			border: 1px solid #ccc;
+			width: 150px;
+		}
+
+		.tag-item:hover {
+			background-color: #ccc;
+		}
+	</style>
 </head>
 
 <h1>Tags autocompletion</h1>
@@ -10,11 +22,13 @@ User input is: <div id="user-input"></div>
 Detected tags are: <div id="detected-tags"></div>
 <br/>
 
-<form name="tag_completion">
+<form name="tag-completion">
 	<label for="tag-list">Write some tags... </label>
-	<input type="text" name="tags" id="tag-list" />
+	<input type="text" name="tags" id="tag-list" autocomplete="off" />
+	<div id="auto-completion-list"></div>
 	<br/>
 	<input type="submit"/>
 </form>
 <div id="result">Submited tags are </div>
+
 </html>
