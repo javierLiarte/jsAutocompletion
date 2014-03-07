@@ -1,0 +1,1 @@
+var tags = new Array('javascript', 'dev', 'development' 'array', 'example', 'hackaton');
