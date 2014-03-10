@@ -19,6 +19,14 @@ $(function() {
     	return false;
     }
 
+    function renderReceivedTags(tagArray) {
+        if (receivedTags.length > 0) {
+            receivedTags.forEach(function(tag) {
+                $( "#result" ).append("<span class=\"tag-item\">"+tag+"</span> ").show();
+            });
+        }
+    }
+
     var availableTags = ['javascript', 'dev', 'development', 'array', 'example', 'hackaton'];
     var selectedTags = new Array();
 
@@ -40,5 +48,17 @@ $(function() {
     });
 
     $( "#result" ).hide();
+
+    if (document.location.search != "") {
+        var decodedSearch = decodeURIComponent(document.location.search.substring(1));
+        var getParams = decodedSearch.split("&");
+        receivedTags = [];
+        getParams.forEach(function(param) {
+            if (param.indexOf("selected-tags=") === 0) {
+                receivedTags = JSON.parse(param.split("=")[1]);
+            }
+        });
+        renderReceivedTags(receivedTags);
+    }
 
   });
