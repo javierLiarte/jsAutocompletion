@@ -33,4 +33,12 @@ $(function() {
         return false;
     });
 
+    $( "#tag-completion-form" ).on("submit", function (event) {
+        if (selectedTags.length <= 0) return false;
+        $( "#selected-tags" ).val(JSON.stringify( selectedTags ));
+        //event.preventDefault();
+    });
+
+    $( "#result" ).hide();
+
   });

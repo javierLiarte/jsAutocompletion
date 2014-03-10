@@ -22,14 +22,16 @@
 Detected tags are: <div id="detected-tags"></div>
 <br/>
 
-<form name="tag-completion">
+<form name="tag-completion" id="tag-completion-form" method="get">
 <div class="ui-widget">
   <label for="tags">Tags: </label>
-  <input id="tags">
-  <input type="submit"/>
+  <input id="tags" />
+  <input type="hidden" name="selected-tags" id="selected-tags" value="" />
+  <input type="submit" />
 </div>
 </form>
  
+<div id="result">Submited tags are </div>
  
 </body>
 </html>
