@@ -30,6 +30,7 @@ $(function() {
     	selectedTags.push(ui.item.label);
     	showDetectedTags();
     	$("#tags").val('');
-    });	
+        return false;
+    });
 
   });
